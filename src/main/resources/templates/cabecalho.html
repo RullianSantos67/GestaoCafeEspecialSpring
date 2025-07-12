@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head(titulo)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${titulo}">Gestão de Café</title>
+
+    <link href="http://googleusercontent.com/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="http://googleusercontent.com/all.min.css" />
+    
+    <link rel="preconnect" href="http://googleusercontent.com/googleapis.com/">
+    <link rel="preconnect" href="http://googleusercontent.com/gstatic.com/" crossorigin>
+    <link href="http://googleusercontent.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+    /* Variáveis de Cor e Fontes Globais */
+    :root {
+        --cor-cafe-escuro: #3E2723;
+        --cor-fundo: #f8f9fa;
+    }
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: var(--cor-fundo);
+    }
+
+    /* Estilo para a Seção Superior com Imagem (Hero) */
+    .hero-section {
+        background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1961&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 6rem 2rem;
+        position: relative;
+    }
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 0;
+    }
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+    .hero-title {
+        font-family: 'Merriweather', serif;
+        font-size: 3rem;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+
+    /* Estilo para a Barra de Navegação */
+    .navbar-coffee {
+        background-color: var(--cor-cafe-escuro);
+        font-family: 'Roboto', sans-serif;
+    }
+
+    /* Estilos para os Cards Coloridos do Menu */
+    .card-link { text-decoration: none; }
+    .card-custom {
+        border: none;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        color: white;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        min-height: 180px;
+    }
+    .card-custom:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .card-custom .card-title { font-weight: bold; font-size: 1.25rem; }
+    .card-custom i { font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.8; }
+    .bg-card-produtor { background: linear-gradient(135deg, #2a9d8f, #264653); }
+    .bg-card-fazenda { background: linear-gradient(135deg, #8d6e63, #6d4c41); }
+    .bg-card-lote { background: linear-gradient(135deg, #e9c46a, #f4a261); }
+    .bg-card-avaliacao { background: linear-gradient(135deg, #e76f51, #d62828); }
+
+    /* Estilo para a Tabela Minimalista */
+    .table-custom {
+        border-collapse: separate;
+        border-spacing: 0 10px;
+    }
+    .table-custom thead th {
+        border: 0;
+        color: #6c757d;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        padding-bottom: 1rem;
+    }
+    .table-custom tbody tr {
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        border-radius: 8px;
+    }
+    .table-custom tbody td {
+        border: 0;
+        padding: 1rem;
+        vertical-align: middle;
+    }
+    .table-custom tbody td:first-child { 
+        border-top-left-radius: 8px; 
+        border-bottom-left-radius: 8px; 
+    }
+    .table-custom tbody td:last-child { 
+        border-top-right-radius: 8px; 
+        border-bottom-right-radius: 8px; 
+    }
+</style>
+    
+</head>
+
+<body>
+    <div class="hero-section" th:fragment="hero(tituloPrincipal, subtituloPrincipal)">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <h1 class="hero-title" th:text="${tituloPrincipal}"></h1>
+            <p class="lead" th:text="${subtituloPrincipal}"></p>
+        </div>
+    </div>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-coffee sticky-top" th:fragment="navbar">
+        
+    </nav>
+    
+    <div th:fragment="footer-scripts">
+        <script src="http://googleusercontent.com/bootstrap.bundle.min.js"></script>
+    </div>
+</body>
+</html>

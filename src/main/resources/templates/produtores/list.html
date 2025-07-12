@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtores</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f4f1ee;
+            font-family: sans-serif;
+        }
+        .navbar-coffee {
+            background-color: #3E2723; /* Tom de marrom escuro */
+        }
+        /* Estilo para a tabela minimalista */
+        .table-custom {
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+        .table-custom thead th {
+            border: 0;
+            color: #6c757d;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            padding-bottom: 1rem;
+        }
+        .table-custom tbody tr {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+        .table-custom tbody td {
+            border: 0;
+            padding: 1rem;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-coffee">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">☕ Gestão de Café Especial</a>
+    </div>
+</nav>
+
+<div class="container my-5">
+    
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 style="color: #3E2723;">Produtores Cadastrados</h1>
+        <a th:href="@{/produtores/novo}" class="btn btn-success px-4">Adicionar Produtor</a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table class="table table-custom">
+                <thead>
+                    <tr>
+                        <th>Nome Completo</th>
+                        <th>CPF</th>
+                        <th>Região</th>
+                        <th class="text-center">Anos de Exp.</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="produtor : ${produtores}">
+                        <td th:text="${produtor.nomeCompleto}"></td>
+                        <td th:text="${produtor.cpf}"></td>
+                        <td th:text="${produtor.regiao}"></td>
+                        <td class="text-center" th:text="${produtor.anosDeExperiencia}"></td>
+                        <td class="text-center">
+                            <a th:href="@{/produtores/editar/{id}(id=${produtor.id})}" class="btn btn-sm btn-primary">Alterar</a>
+                            <a th:href="@{/produtores/deletar/{id}(id=${produtor.id})}" class="btn btn-sm btn-danger">Excluir</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container mt-4">
+         <a th:href="@{/}" class="btn btn-secondary">Voltar ao Menu Principal</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

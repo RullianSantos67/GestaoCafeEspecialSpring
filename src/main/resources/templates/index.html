@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{cabecalho :: head('Página Inicial')}"></head>
+
+<body>
+    <div th:replace="~{cabecalho :: hero('Sistema de Gestão de Café Especial', 'Organize e gerencie seus lotes com facilidade')}"></div>
+    
+    <div th:replace="~{cabecalho :: navbar}"></div>
+
+    
+
+            <div class="col-md-6 col-lg-3 mb-4">
+                <a th:href="@{/produtores}" class="card-link">
+                    <div class="card card-custom bg-card-produtor h-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-center">
+                            <i class="fas fa-users"></i>
+                            <h5 class="card-title">Produtores</h5>
+                            <p class="card-text">Cadastre e gerencie os produtores.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+                <a th:href="@{/fazendas}" class="card-link">
+                    <div class="card card-custom bg-card-fazenda h-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-center">
+                            <i class="fas fa-tractor"></i>
+                            <h5 class="card-title">Fazendas</h5>
+                            <p class="card-text">Gerencie as fazendas e suas informações.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+                <a th:href="@{/lotes}" class="card-link">
+                    <div class="card card-custom bg-card-lote h-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-center">
+                            <i class="fas fa-box-open"></i>
+                            <h5 class="card-title">Lotes de Café</h5>
+                            <p class="card-text">Acompanhe os lotes produzidos.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+                <a th:href="@{/avaliacoes}" class="card-link">
+                    <div class="card card-custom bg-card-avaliacao h-100">
+                        <div class="card-body text-center d-flex flex-column justify-content-center">
+                            <i class="fas fa-vial"></i>
+                            <h5 class="card-title">Avaliações</h5>
+                            <p class="card-text">Registre e consulte as notas de degustação.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div th:replace="~{cabecalho :: footer-scripts}"></div>
+</body>
+</html>
